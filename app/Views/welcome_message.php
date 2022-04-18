@@ -53,19 +53,19 @@
                 <table class="table table -sm table-hover">
                     <thead>
                         <tr>
-                            <th>No</th>
                             <th>Mata Kuliah</th>
                             <th>Nim</th>
                             <th>Nama Mahasiswa</th>
+                            <th>ip address</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php foreach ($presensi as $index => $presen) : ?>
                             <tr>
-                                <td><?= $index + 1 ?></td>
                                 <td><?= $presen->nama_matakuliah ?></td>
                                 <td><?= $presen->nim ?></td>
                                 <td><?= $presen->nama_mahasiswa ?></td>
+                                <td><?= $presen->ip_address ?></td>
                             </tr>
                         <?php endforeach ?>
                     </tbody>

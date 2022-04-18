@@ -31,9 +31,9 @@ class Home extends BaseController
             'matakuliah'  => $this->matakuliahModel->asObject()->findAll(),
             'hari_ini'  => $this->getHari(date('l', strtotime(date('Y-m-d')))),
             'presensi'  => $this->presensiModel
-                        ->join('mahasiswa','mahasiswa.id = presensi.id_mahasiswa')
-                        ->join('matakuliah','matakuliah.id = presensi.id_matakuliah')
-                        ->where('DATE(tanggal_presensi)', date('Y-m-d'))->asObject()->findAll(),
+                ->join('mahasiswa', 'mahasiswa.id = presensi.id_mahasiswa')
+                ->join('matakuliah', 'matakuliah.id = presensi.id_matakuliah')
+                ->where('DATE(tanggal_presensi)', date('Y-m-d'))->asObject()->findAll(),
         ];
         return view('welcome_message', $data);
     }
@@ -65,7 +65,7 @@ class Home extends BaseController
         $mahasiswa = $this->mahasiswaModel->where('nim', $nim)->asObject()->first();
         if (!empty($mahasiswa)) {
             $mahasiswa_id = $mahasiswa->id;
-            $presensi = $this->presensiModel->where('id_matakuliah', $id_matakuliah)->where('ip_address', $ip_address)->asObject()->first();
+            $presensi = $this->presensiModel->where('ip_address', $ip_address)->asObject()->first();
             if (!empty($presensi)) {
                 return redirect()->to('/')->with('error', "presensi gagal, ip address sudah digunakan");
             }
@@ -107,7 +107,7 @@ class Home extends BaseController
             case 'Sunday':
                 $result = 'Minggu';
                 break;
-            
+
             default:
                 # code...
                 break;
