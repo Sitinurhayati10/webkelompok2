@@ -1,6 +1,5 @@
 <?= $this->extend('layouts/layout') ?>
 <?= $this->section('content') ?>
-
 <div class="row mt-5">
     <div class="col">
         <div class="card">
