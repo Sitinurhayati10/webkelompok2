@@ -35,7 +35,7 @@ class Home extends BaseController
                 ->join('matakuliah', 'matakuliah.id = presensi.id_matakuliah')
                 ->where('DATE(tanggal_presensi)', date('Y-m-d'))->asObject()->findAll(),
         ];
-        return view('welcome_message', $data);
+        return view('home', $data);
     }
 
     public function store()
