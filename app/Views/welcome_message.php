@@ -43,6 +43,37 @@
         </div>
     </div>
 </div>
+<div class="row mt-5">
+    <div class="col">
+        <div class="card">
+            <div class="card-header d-flex align-items-center justify-content-between">
+                <h4 class="card-title">List Presensi <?= $hari_ini ?>, <?= date('d-m-Y') ?></h4>
+            </div>
+            <div class="card-body">
+                <table class="table table -sm table-hover">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Mata Kuliah</th>
+                            <th>Nim</th>
+                            <th>Nama Mahasiswa</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($presensi as $index => $presen) : ?>
+                            <tr>
+                                <td><?= $index + 1 ?></td>
+                                <td><?= $presen->nama_matakuliah ?></td>
+                                <td><?= $presen->nim ?></td>
+                                <td><?= $presen->nama_mahasiswa ?></td>
+                            </tr>
+                        <?php endforeach ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 <script>
     let apiKey = '1be9a6884abd4c3ea143b59ca317c6b2';
     fetch(`https://ipgeolocation.abstractapi.com/v1/?api_key=${apiKey}`)

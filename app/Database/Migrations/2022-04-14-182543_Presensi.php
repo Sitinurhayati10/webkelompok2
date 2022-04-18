@@ -32,6 +32,10 @@ class Presensi extends Migration
             'status'          => [
                 'type'           => 'BOOLEAN',
             ],
+            'tanggal_presensi'       => [
+                'type'       => 'DATETIME',
+                'nullable'   => true
+            ],
         ]);
         $this->forge->addKey('id', true);
         $this->forge->addForeignKey('id_matakuliah', 'matakuliah', 'id');

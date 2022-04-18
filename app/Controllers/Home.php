@@ -28,7 +28,12 @@ class Home extends BaseController
         session();
         $data = [
             'validation'    => \config\Services::validation(),
-            'matakuliah'  => $this->matakuliahModel->asObject()->findAll()
+            'matakuliah'  => $this->matakuliahModel->asObject()->findAll(),
+            'hari_ini'  => $this->getHari(date('l', strtotime(date('Y-m-d')))),
+            'presensi'  => $this->presensiModel
+                        ->join('mahasiswa','mahasiswa.id = presensi.id_mahasiswa')
+                        ->join('matakuliah','matakuliah.id = presensi.id_matakuliah')
+                        ->where('DATE(tanggal_presensi)', date('Y-m-d'))->asObject()->findAll(),
         ];
         return view('welcome_message', $data);
     }
@@ -68,6 +73,7 @@ class Home extends BaseController
                 'id_matakuliah' => $id_matakuliah,
                 'id_mahasiswa' => $mahasiswa_id,
                 'ip_address' => $ip_address,
+                'tanggal_presensi' => date('Y-m-d H:i:s'),
                 'status' => 1,
             ];
             $this->presensiModel->insert($data);
@@ -75,5 +81,38 @@ class Home extends BaseController
         } else {
             return redirect()->to('/')->with('error', "Data mahasiswa tidak ditemukan!");
         }
+    }
+
+    public function getHari($hari)
+    {
+        switch ($hari) {
+            case 'Monday':
+                $result = 'Senin';
+                break;
+            case 'Tuesday':
+                $result = 'Selasa';
+                break;
+            case 'Wednesday':
+                $result = 'Rabut';
+                break;
+            case 'Thursday':
+                $result = 'Kamis';
+                break;
+            case 'Friday':
+                $result = 'Juma\'at';
+                break;
+            case 'Saturday':
+                $result = 'Sabtu';
+                break;
+            case 'Sunday':
+                $result = 'Minggu';
+                break;
+            
+            default:
+                # code...
+                break;
+        }
+
+        return $result;
     }
 }
