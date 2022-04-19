@@ -23,7 +23,7 @@
                 <label form="hari">Hari</label>
                 <select class="form-control <?= ($validation->hasError('hari')) ? 'is-invalid' : '' ?>" name="hari" id="hari">
                     <option value="Senin">Senin</option>
-                    <option value="Selesa">Selasa</option>
+                    <option value="Selasa">Selasa</option>
                     <option value="Rabu">Rabu</option>
                     <option value="Kamis">Kamis</option>
                     <option value="Jumat">Jum'at</option>
