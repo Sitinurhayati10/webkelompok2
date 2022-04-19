@@ -103,7 +103,7 @@ class Home extends BaseController
                 $result = 'Kamis';
                 break;
             case 'Friday':
-                $result = 'Juma\'at';
+                $result = 'Jum\'at';
                 break;
             case 'Saturday':
                 $result = 'Sabtu';
@@ -135,7 +135,7 @@ class Home extends BaseController
             case 'Kamis':
                 $result = 'Thursday';
                 break;
-            case 'Jumaat':
+            case 'Jumat':
                 $result = 'Friday';
                 break;
             case 'Sabtu':

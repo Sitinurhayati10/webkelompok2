@@ -22,13 +22,13 @@
             <div class="form-group">
                 <label form="hari">Hari</label>
                 <select class="form-control <?= ($validation->hasError('hari')) ? 'is-invalid' : '' ?>" name="hari" id="hari">
-                    <option value="Senin">Senin</option>
-                    <option value="Selasa">Selasa</option>
-                    <option value="Rabu">Rabu</option>
-                    <option value="Kamis">Kamis</option>
-                    <option value="Jumat">Jum'at</option>
-                    <option value="Sabtu">Sabtu</option>
-                    <option value="Minggu">Minggu</option>
+                    <option <?= $matakuliah->hari == 'Senin' ? 'selected': '' ?> value="Senin">Senin</option>
+                    <option <?= $matakuliah->hari == 'Selasa' ? 'selected': '' ?>  value="Selasa">Selasa</option>
+                    <option <?= $matakuliah->hari == 'Rabu' ? 'selected': '' ?>  value="Rabu">Rabu</option>
+                    <option <?= $matakuliah->hari == 'Kamis' ? 'selected': '' ?>  value="Kamis">Kamis</option>
+                    <option <?= $matakuliah->hari == 'Jumat' ? 'selected': '' ?>  value="Jumat">Jum'at</option>
+                    <option <?= $matakuliah->hari == 'Sabtu' ? 'selected': '' ?>  value="Sabtu">Sabtu</option>
+                    <option <?= $matakuliah->hari == 'Minggu' ? 'selected': '' ?>  value="Minggu">Minggu</option>
                 </select>
                 <div class="invalid-feedback">
                     <?= $validation->getError('hari') ?>
