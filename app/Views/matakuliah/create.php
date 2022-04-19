@@ -23,6 +23,21 @@
                             <?= $validation->getError('jadwal_absensi') ?>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label form="hari">Hari</label>
+                        <select class="form-control <?= ($validation->hasError('hari')) ? 'is-invalid' : '' ?>" name="hari" id="hari">
+                            <option value="Senin">Senin</option>
+                            <option value="Selesa">Selesa</option>
+                            <option value="Rabu">Rabu</option>
+                            <option value="Kamis">Kamis</option>
+                            <option value="Jumat">Jum'at</option>
+                            <option value="Sabtu">Sabtu</option>
+                            <option value="Minggu">Minggu</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            <?= $validation->getError('hari') ?>
+                        </div>
+                    </div>
                     <button type="submit" class="btn btn-primary btn-sm mt-2">SAVE</button>
                 </form>
             </div>

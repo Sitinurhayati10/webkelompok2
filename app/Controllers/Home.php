@@ -56,7 +56,11 @@ class Home extends BaseController
         $matakuliah = $this->matakuliahModel->where('id', $id_matakuliah)->asObject()->first();
 
         $jadwal_absensi = $matakuliah->jadwal_absensi;
-
+        $hari = $this->getHariEnglish($matakuliah->hari);
+        $hari_ini = date('l');
+        if ($hari !== $hari_ini) {
+            return redirect()->to('/')->with('error', "presensi gagal, jadwal untuk hari " . $matakuliah->hari);
+        }
         $jadwal_absensi = date('Y-m-d ' . $jadwal_absensi);
         if (date('Y-m-d H:i') <= $jadwal_absensi) {
             return redirect()->to('/')->with('error', "presensi gagal, belum waktu untuk jadwal absensi");
@@ -93,7 +97,7 @@ class Home extends BaseController
                 $result = 'Selasa';
                 break;
             case 'Wednesday':
-                $result = 'Rabut';
+                $result = 'Rabu';
                 break;
             case 'Thursday':
                 $result = 'Kamis';
@@ -106,6 +110,39 @@ class Home extends BaseController
                 break;
             case 'Sunday':
                 $result = 'Minggu';
+                break;
+
+            default:
+                # code...
+                break;
+        }
+
+        return $result;
+    }
+
+    public function getHariEnglish($hari)
+    {
+        switch ($hari) {
+            case 'Senin':
+                $result = 'Monday';
+                break;
+            case 'Selasa':
+                $result = 'Tuesday';
+                break;
+            case 'Rabu':
+                $result = 'Wednesday';
+                break;
+            case 'Kamis':
+                $result = 'Thursday';
+                break;
+            case 'Jumaat':
+                $result = 'Friday';
+                break;
+            case 'Sabtu':
+                $result = 'Saturday';
+                break;
+            case 'Minggu':
+                $result = 'Sunday';
                 break;
 
             default:

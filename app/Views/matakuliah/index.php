@@ -14,6 +14,7 @@
                             <th>No</th>
                             <th>Nama Matakuliah</th>
                             <th>jadwal Absensi</th>
+                            <th>Hari</th>
                             <th>Option</th>
                         </tr>
                     </thead>
@@ -22,7 +23,8 @@
                             <tr>
                                 <td><?= $index + 1 ?></td>
                                 <td><?= $matkul->nama_matakuliah ?></td>
-                                <td><?= date('l', strtotime(date('Y-m-d'))) . ' ' . $matkul->jadwal_absensi ?></td>
+                                <td><?= $matkul->jadwal_absensi ?></td>
+                                <td><?= $matkul->hari ?></td>
                                 <td>
                                     <a href="<?= base_url('/matakuliah/' . $matkul->id . '/edit') ?>" class="btn btn-info btn-sm">Edit</a>
                                     <a href="<?= base_url('/matakuliah/' . $matkul->id . '/delete') ?>" class="btn btn-danger btn-sm" onclick="return confirm('matakuliah ini akan terhapus, lanjutkan?')">Delete</a>

@@ -41,7 +41,8 @@ class MatakuliahController extends BaseController
     {
         if (!$this->validate([
             'nama_matakuliah'   => 'required',
-            'jadwal_absensi'   => 'required'
+            'jadwal_absensi'   => 'required',
+            'hari'   => 'required'
         ])) {
             $validation = \config\Services::validation();
             return redirect()->to('/matakuliah/create')->withInput()->with('validation', $validation);
@@ -50,6 +51,7 @@ class MatakuliahController extends BaseController
         $data = [
             'nama_matakuliah'   => $this->request->getVar('nama_matakuliah'),
             'jadwal_absensi'   => $this->request->getVar('jadwal_absensi'),
+            'hari'   => $this->request->getVar('hari'),
         ];
         $this->matakuliahModel->insert($data);
         return redirect()->to('/matakuliah')->with('success', "Data berhasil ditambahkan");

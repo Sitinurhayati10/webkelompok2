@@ -14,7 +14,7 @@ class MatakuliahModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['nama_matakuliah', 'jadwal_absensi'];
+    protected $allowedFields    = ['nama_matakuliah', 'jadwal_absensi', 'hari'];
 
     // Dates
     protected $useTimestamps = false;

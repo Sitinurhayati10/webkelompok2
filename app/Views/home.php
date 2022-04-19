@@ -22,7 +22,7 @@
                         <select class="form-control <?= ($validation->hasError('id_matakuliah')) ? 'is-invalid' : '' ?>" name=" id_matakuliah" id="id_matakuliah">
                             <?php if (!empty($matakuliah)) : ?>
                                 <?php foreach ($matakuliah as $val) : ?>
-                                    <option value="<?= $val->id ?>"><?= $val->nama_matakuliah ?> (<?= $val->jadwal_absensi ?>)
+                                    <option value="<?= $val->id ?>"><?= $val->nama_matakuliah ?> (<?= $val->hari ?> | <?= $val->jadwal_absensi ?>)
                                     <?php endforeach ?>
                                 <?php endif ?>
                         </select>
